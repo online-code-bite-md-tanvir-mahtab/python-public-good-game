@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    {% trans "Punishment Choose" %}
+{% endblock %}
+
+{% block content %}
+{% if role != 'Judge' %}
+<p>hello this is punishment </p>
+{% if player.contribution < 20 %}
+<p> you have contributed less then 20 so</p>
+{{ formfields }}
+{{ next_button }}
+{% else %}
+<p>go to next page</p>
+
+{{ next_button }}
+{% endif %}
+{% else %}
+<p>your judge go to next page imediatly</p>
+{{ next_button }}
+{% endif %}
+{% endblock %}

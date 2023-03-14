@@ -1,0 +1,50 @@
+{{ if role != 'Judge'}}
+{{ block title }}PAYOFF{{ endblock }}
+{{ else }}
+{{ block title }}Results{{ endblock }}
+{{ endif }}
+{{ block content }}
+    {{ if role != 'Judge'}}
+    <p>
+        you contributed {{ player.contribution }}
+    </p>
+    <table>
+        <tr>
+          <th>Contributed </th>
+          <div></div>
+          <th>Earned</th>
+        </tr>
+        {% for pr in data %}
+            <tr>
+                <td>{{ pr.contribution }}</td>
+                <div></div>
+                <td>{{ pr.payoff }}</td>
+                
+            </tr>
+        {% endfor %}
+
+      </table>
+    <p>
+        You earnd {{ player.payoff }}.
+    </p>
+    {{ else }}
+    <p> Player Contributed </p>
+    <table>
+        <tr>
+          <th>Contributed  </th>
+          <th>Earned</th>
+        </tr>
+        {% for pr in data %}
+            <tr>
+                <td>{{ pr.contribution }}</td>
+                <div></div>
+                <td>{{ pr.payoff }}</td>
+            </tr>
+        {% endfor %}
+
+      </table>
+    {{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}

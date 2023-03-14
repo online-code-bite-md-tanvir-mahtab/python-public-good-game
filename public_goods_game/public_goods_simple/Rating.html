@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    {% trans "Rating" %}
+{% endblock %}
+
+{% block content %}
+{% if id != 5 %}
+<p>hello this is rating </p>
+<p> you have contributed less then 20 so {{ player.amount_punished }}</p>
+
+{{ formfields }}
+{{ next_button }}
+{% else %}
+<table>
+    <tr>
+      <th>Contributed </th>
+      <div></div>
+      <th>Earned</th>
+      <div></div>
+      <th>Rate</th>
+    </tr>
+    {% for pr in players %}
+        <tr>
+            <td>{{ pr.contribution }}</td>
+            <div></div>
+            <td>{{ pr.payoff }}</td>
+            <div></div>
+            <td>{{ pr.fairness_rating }}</td>
+        </tr>
+    {% endfor %}
+
+  </table>
+{% endif %}
+
+{% endblock %}

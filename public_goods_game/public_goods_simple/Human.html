@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    {% trans "Human" %}
+{% endblock %}
+
+{% block content %}
+<p>heyy human judge you have some work</p>
+{% for pr in players %}
+    <tr>
+        <td>Contributed : {{ pr.contribution }}</td>
+        <div></div>
+        <td>Earned : {{ pr.payoff }}</td>
+        <div></div>
+        <td>{{ formfields }}</td>
+    </tr>
+{% endfor %}
+{{ next_button }}
+{% endblock %}
